@@ -26,7 +26,7 @@ class SerialNumberColumn(Column):
 
     def getCell(self, row: int):
         if row >= self.__rowCount:
-            raise IndexError("list index out of range")
+            raise IndexError()
         return "{}.".format(row + 1)
 
     def __len__(self):
@@ -95,7 +95,10 @@ class DataColumn(Column):
 
     def unit(self, unit: str | units.Unit | units.CompositeUnit | units.IrreducibleUnit):
         if self.__unit is not None:
-            raise Exception("Unit is already set to {}.".format(self.__unit))
+            if self.__unit.startswith("$"):
+                raise Exception("Unit is already set to {}".format(self.__unit[9:-2]))
+            else:
+                raise Exception("Unit is already set to {}".format(self.__unit))
         self.__setUnit(unit)
         return self
 
@@ -107,7 +110,7 @@ class DataColumn(Column):
 
     def getCell(self, row: int):
         if self.__errors is not None:
-            cell = self.__formatter.formatWithError(self.__data[row], self.__errors[row])
+            cell = self.__formatter.format(self.__data[row], self.__errors[row])
             if self.__inlineUnit and self.__unit is not None:
                 cell += self.__unit
             return cell

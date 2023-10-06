@@ -4,22 +4,32 @@ import numpy as np
 from astropy import units
 from src.latab import SerialNumberColumn, TextColumn, EmptyColumn, DataColumn, FloatFormatter, ExponentialFormatter
 from src.latab.formatters import Formatter
+from src.latab.columns import Column
 
 HEADER = "header"
 HEADER_WITH_UNIT = "header [AU]"
 TEXTS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
 LINES = 10
 UNIT = "AU"
-WRONG_DATA_TYPE_MESSAGE = "Data must be of type numpy.ndarray or astropy.units.Quantity"
-WRONG_FORMATTER_MESSAGE = "The argument 'formatter' must be a subclass of latab.Formatter"
-WRONG_UNIT_TYPE_MESSAGE = "Unit must be of type str or a subclass of astropy.units.core.UnitBase"
-WRONG_FIX_ERROR_TYPE_MESSAGE = "Fix error must be of type float or astropy.units.Quantity"
-WRONG_RELATIVE_ERROR_TYPE_MESSAGE = "Relative error must be of type float"
-WRONG_ABSOLUTE_ERROR_TYPE_MESSAGE = "Absolute error must be of type numpy.ndarray or astropy.units.Quantity"
+ABSTRACT_CLASS_ERROR_MESSAGE = "^Can't instantiate abstract class Column with abstract method getCell$"
+WRONG_DATA_TYPE_MESSAGE = "^Data must be of type numpy.ndarray or astropy.units.Quantity$"
+WRONG_FORMATTER_MESSAGE = "^The argument 'formatter' must be a subclass of latab.Formatter$"
+WRONG_UNIT_TYPE_MESSAGE = "^Unit must be of type str or a subclass of astropy.units.core.UnitBase$"
+WRONG_FIX_ERROR_TYPE_MESSAGE = "^Fix error must be of type float or astropy.units.Quantity$"
+WRONG_RELATIVE_ERROR_TYPE_MESSAGE = "^Relative error must be of type float$"
+WRONG_ABSOLUTE_ERROR_TYPE_MESSAGE = "^Absolute error must be of type numpy.ndarray or astropy.units.Quantity$"
+UNIT_ALREADY_SET_ERROR_MESSAGE = "^Unit is already set to kg$"
 DATA = np.random.rand(LINES) * 100
 FIX_ERROR = 0.05
 RELATIVE_ERROR = 0.025
 ABSOLUTE_ERROR = np.random.rand(LINES)
+
+
+class TestColumn(TestCase):
+
+    def test_ColumnIsAbstract(self):
+        with self.assertRaisesRegex(TypeError, ABSTRACT_CLASS_ERROR_MESSAGE):
+            Column()
 
 
 class TestSerialNumberColumn(TestCase):
@@ -147,9 +157,13 @@ class TestDataColumn(TestCase):
         with self.assertRaisesRegex(Exception, WRONG_DATA_TYPE_MESSAGE):
             DataColumn(HEADER, HEADER)
 
-    def test_shouldUnitRaiseExceptionForCallingWhenAlreadySet(self):
-        with self.assertRaises(Exception):
+    def test_shouldUnitRaiseExceptionForCallingWhenAlreadySetByQuantity(self):
+        with self.assertRaisesRegex(Exception, UNIT_ALREADY_SET_ERROR_MESSAGE):
             DataColumn(HEADER, DATA * units.kg).unit(units.g)
+
+    def test_shouldUnitRaiseExceptionForCallingWhenAlreadySetByString(self):
+        with self.assertRaisesRegex(Exception, UNIT_ALREADY_SET_ERROR_MESSAGE):
+            DataColumn(HEADER, DATA).unit("kg").unit("g")
 
     def test_shouldFixErrorSetCorrectErrorAndCallAdjustAdditionalErrorPrecisionOnFormatterForFloat(self):
         underTest = DataColumn(HEADER, DATA)
@@ -190,9 +204,13 @@ class TestDataColumn(TestCase):
             DataColumn(HEADER, DATA).relativeError(HEADER)
 
     def __mockFormatter(self):
+        def sideEffect(*args):
+            if len(args) == 1:
+                return "X "
+            else:
+                return "Y "
         mock = MagicMock(spec=Formatter)
-        mock.format.return_value = "X "
-        mock.formatWithError.return_value = "Y "
+        mock.format.side_effect = sideEffect
         return mock
 
     def test_shouldGetCellReturnCorrectCellForInlineFalse(self):
@@ -230,6 +248,14 @@ class TestDataColumn(TestCase):
     def test_shouldRaiseExceptionForIndexOutOfBounds(self):
         with self.assertRaises(IndexError):
             DataColumn(HEADER, np.random.rand(LINES)).getCell(LINES)
+
+    def test_shouldCreateExponentialFormatterForDataOrder5(self):
+        underTest = DataColumn(HEADER, DATA * 1000)
+        self.assertIsInstance(underTest._DataColumn__formatter, ExponentialFormatter)
+
+    def test_shouldCreateFloatFormatterForDataOrder5(self):
+        underTest = DataColumn(HEADER, DATA * 100)
+        self.assertIsInstance(underTest._DataColumn__formatter, FloatFormatter)
 
 
 if __name__ == '__main__':

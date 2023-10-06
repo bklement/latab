@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "latab"
-version = "1.0.0-beta3"
+version = "1.0.0-rc1"
 authors = [
   { name="Balázs Klement", email="astro@bklement.com" }
 ]

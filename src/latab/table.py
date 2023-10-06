@@ -45,7 +45,6 @@ class Table():
         for line in self.lines(tabLength, separator):
             print(line)
 
-    @staticmethod
     def fromDictionary(dict: dict, caption: str = None):
         columns = []
         for header, data in dict.items():
