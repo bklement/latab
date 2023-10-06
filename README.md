@@ -34,6 +34,26 @@ table = Table([col1, col2, col3, col4, col5], "Nobody expects the Spanish inquis
 table.print()
 ```
 
+```
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|} \hline
+        Planet & Semi-major Axis [AU] & $\varrho$ [$\mathrm{g/cm^{3}}$] & Mass [$\mathrm{kg}$] & Note \\ \hline
+        1. & $13.350 \pm 0.005$  & $1.81 \pm 0.03$  & $(9.477 \pm 0.4739)\cdot 10^{20}$  &  \\ \hline
+        2. & $0.766 \pm 0.005$  & $5.36 \pm 0.07$  & $(9.065 \pm 0.4532)\cdot 10^{20}$  &  \\ \hline
+        3. & $1.425 \pm 0.005$  & $5.63 \pm 0.05$  & $(2.508 \pm 0.1254)\cdot 10^{20}$  &  \\ \hline
+        4. & $9.276 \pm 0.005$  & $7.42 \pm 0.10$  & $(8.857 \pm 0.4429)\cdot 10^{20}$  &  \\ \hline
+        5. & $3.840 \pm 0.005$  & $8.13 \pm 0.02$  & $(7.045 \pm 0.3523)\cdot 10^{20}$  &  \\ \hline
+        6. & $1.889 \pm 0.005$  & $4.58 \pm 0.07$  & $(8.905 \pm 0.4452)\cdot 10^{20}$  &  \\ \hline
+        7. & $8.469 \pm 0.005$  & $8.76 \pm 0.07$  & $(3.588 \pm 0.1794)\cdot 10^{18}$  &  \\ \hline
+        8. & $3.627 \pm 0.005$  & $9.97 \pm 0.08$  & $(6.374 \pm 0.3187)\cdot 10^{20}$  &  \\ \hline
+        9. & $2.870 \pm 0.005$  & $9.24 \pm 0.08$  & $(2.725 \pm 0.1363)\cdot 10^{19}$  &  \\ \hline
+        10. & $4.134 \pm 0.005$  & $4.20 \pm 0.07$  & $(8.959 \pm 0.4479)\cdot 10^{20}$  &  \\ \hline
+    \end{tabular}
+    \caption{Nobody expects the Spanish inquisition.}
+\end{table}
+```
+
 ![Example 1](https://astro.bklement.com/latab/img1.png)
 
 ### Localized example with different decimal separator
@@ -49,6 +69,26 @@ table = Table([col1, col2, col3, col4, col5], "Aprócska kalapocska, benne csacs
 table.print(separator=',')
 ```
 
+```
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|} \hline
+        Bolygó & Félnagytengely [AU] & $\varrho$ [$\mathrm{g/cm^{3}}$] & Tömeg [$\mathrm{kg}$] & Megjegyzés \\ \hline
+        1. & $13,350 \pm 0,005$  & $1,81 \pm 0,03$  & $(9,477 \pm 0,4739)\cdot 10^{20}$  &  \\ \hline
+        2. & $0,766 \pm 0,005$  & $5,36 \pm 0,07$  & $(9,065 \pm 0,4532)\cdot 10^{20}$  &  \\ \hline
+        3. & $1,425 \pm 0,005$  & $5,63 \pm 0,05$  & $(2,508 \pm 0,1254)\cdot 10^{20}$  &  \\ \hline
+        4. & $9,276 \pm 0,005$  & $7,42 \pm 0,10$  & $(8,857 \pm 0,4429)\cdot 10^{20}$  &  \\ \hline
+        5. & $3,840 \pm 0,005$  & $8,13 \pm 0,02$  & $(7,045 \pm 0,3523)\cdot 10^{20}$  &  \\ \hline
+        6. & $1,889 \pm 0,005$  & $4,58 \pm 0,07$  & $(8,905 \pm 0,4452)\cdot 10^{20}$  &  \\ \hline
+        7. & $8,469 \pm 0,005$  & $8,76 \pm 0,07$  & $(3,588 \pm 0,1794)\cdot 10^{18}$  &  \\ \hline
+        8. & $3,627 \pm 0,005$  & $9,97 \pm 0,08$  & $(6,374 \pm 0,3187)\cdot 10^{20}$  &  \\ \hline
+        9. & $2,870 \pm 0,005$  & $9,24 \pm 0,08$  & $(2,725 \pm 0,1363)\cdot 10^{19}$  &  \\ \hline
+        10. & $4,134 \pm 0,005$  & $4,20 \pm 0,07$  & $(8,959 \pm 0,4479)\cdot 10^{20}$  &  \\ \hline
+    \end{tabular}
+    \caption{Aprócska kalapocska, benne csacska macska mocska.}
+\end{table}
+```
+
 ![Example 2](https://astro.bklement.com/latab/img2.png)
 
 ### Example using the simple dictionary interface
@@ -62,4 +102,25 @@ Table.fromDictionary({
     "Mass": array3,
 }, "Tis but a scratch!").print()
 ```
+
+```
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|} \hline
+        Semi-major Axis [AU] & $\varrho$ [$\mathrm{g/cm^{3}}$] & Mass [$\mathrm{kg}$] \\ \hline
+        13.350  & 1.813  & $9.477 \cdot 10^{20}$  \\ \hline
+        0.766  & 5.359  & $9.065 \cdot 10^{20}$  \\ \hline
+        1.425  & 5.629  & $2.508 \cdot 10^{20}$  \\ \hline
+        9.276  & 7.425  & $8.857 \cdot 10^{20}$  \\ \hline
+        3.840  & 8.127  & $7.045 \cdot 10^{20}$  \\ \hline
+        1.889  & 4.581  & $8.905 \cdot 10^{20}$  \\ \hline
+        8.469  & 8.762  & $3.588 \cdot 10^{18}$  \\ \hline
+        3.627  & 9.972  & $6.374 \cdot 10^{20}$  \\ \hline
+        2.870  & 9.242  & $2.725 \cdot 10^{19}$  \\ \hline
+        4.134  & 4.197  & $8.959 \cdot 10^{20}$  \\ \hline
+    \end{tabular}
+    \caption{Tis but a scratch!}
+\end{table}
+```
+
 ![Example 3](https://astro.bklement.com/latab/img3.png)
