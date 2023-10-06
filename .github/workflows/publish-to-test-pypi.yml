@@ -19,6 +19,9 @@ jobs:
                 pip install
                 build
                 --user
+          - name: Run tests
+            run: >-
+                python3.11 -m unittest tests/*/*.py
           - name: Build a binary wheel and a source tarball
             run: python3 -m build
           - name: Store the distribution packages
