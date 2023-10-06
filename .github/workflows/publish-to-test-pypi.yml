@@ -19,6 +19,9 @@ jobs:
                 pip install
                 build
                 --user
+          - name: Install dependencies
+            run: >-
+                python -m pip install numpy astropy
           - name: Run tests
             run: >-
                 python3.11 -m unittest tests/*/*.py
