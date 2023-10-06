@@ -8,7 +8,7 @@ Utility to help convert numpy arrays to a LateX table. The main goal is to provi
 
 ```
 import numpy as np
-from astropy import units as u
+from astropy import units
 from latab import DataColumn, Table, SerialNumberColumn, EmptyColumn, FloatFormatter
 
 array1 = np.array([13.35000606, 0.76642346, 1.42476496, 9.27577478, 3.83978828,
