@@ -2,20 +2,6 @@
 
 Utility to help convert numpy arrays to a LateX table. The main goal is to provide a code snippet with proper number and unit formatting, with a basic table layout. Formatting of the table itself is expected to be done manually by the user in the LateX document, but simpler features might be added in later versions if the need arises.
 
-## Installation
-
-If the dependencies are not already present, install them with a package manager, for example pip:
-
-```
-pip install numpy astropy
-```
-
-While in alpha phase, latab is hosted in test.pypi.org. To install use:
-
-```
-pip install -i https://test.pypi.org/simple/ --no-deps latab
-```
-
 ## Examples
 
 ### Imports and sample data
