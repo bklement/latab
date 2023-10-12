@@ -13,13 +13,13 @@ planets = ["Kepler137b", "Kepler137c", "Kepler137d", "Kepler137e", "Kepler137f",
 
 (Table("Nobody expects the Spanish inquisition.")
  .serialColumn("Planet", 6)
- .dataColumn("Semi-major Axis [AU]", array1, FixError(0.005), FloatFormatter(3, 3))
+ .dataColumn("Semi-major Axis [AU]", array1, FixError(0.0005))
  .dataColumn("$\\varrho$", array2, AbsoluteError(errors), FloatFormatter(2, 2))
  .dataColumn("Mass", array3, RelativeError(0.05))).print()
 
 
 (Table("Aprócska kalapocska, benne csacska macska mocska.")
  .textColumn("Bolygó", planets)
- .dataColumn("Félnagytengely [AU]", array1, FixError(0.005), FloatFormatter(3, 3))
+ .dataColumn("Félnagytengely [AU]", array1, FixError(0.0005))
  .dataColumn("$\\varrho$", array2, AbsoluteError(errors), FloatFormatter(2, 2))
  .dataColumn("Tömeg", array3, RelativeError(0.05))).print(separator=',')

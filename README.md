@@ -24,7 +24,7 @@ planets = ["Kepler137b", "Kepler137c", "Kepler137d", "Kepler137e", "Kepler137f",
 ```
 (Table("Nobody expects the Spanish inquisition.")
  .serialColumn("Planet", 6)
- .dataColumn("Semi-major Axis [AU]", array1, FixError(0.005), FloatFormatter(3, 3))
+ .dataColumn("Semi-major Axis [AU]", array1, FixError(0.0005))
  .dataColumn("$\\varrho$", array2, AbsoluteError(errors), FloatFormatter(2, 2))
  .dataColumn("Mass", array3, RelativeError(0.05))).print()
 ```
@@ -34,25 +34,25 @@ planets = ["Kepler137b", "Kepler137c", "Kepler137d", "Kepler137e", "Kepler137f",
     \centering
     \begin{tabular}{|c|c|c|c|} \hline
         Planet & Semi-major Axis [AU] & $\varrho$ [$\mathrm{g/cm^{3}}$] & Mass [$\mathrm{kg}$] \\ \hline
-        1. & $13.350 \pm 0.005$  & $1.81 \pm 0.03$  & $(9.477 \pm 0.4739)\cdot 10^{20}$  \\ \hline
-        2. & $0.766 \pm 0.005$  & $5.36 \pm 0.07$  & $(9.065 \pm 0.4532)\cdot 10^{20}$  \\ \hline
-        3. & $1.425 \pm 0.005$  & $5.63 \pm 0.05$  & $(2.508 \pm 0.1254)\cdot 10^{20}$  \\ \hline
-        4. & $9.276 \pm 0.005$  & $7.42 \pm 0.10$  & $(8.857 \pm 0.4429)\cdot 10^{20}$  \\ \hline
-        5. & $3.840 \pm 0.005$  & $8.13 \pm 0.02$  & $(7.045 \pm 0.3523)\cdot 10^{20}$  \\ \hline
-        6. & $1.889 \pm 0.005$  & $4.58 \pm 0.07$  & $(8.905 \pm 0.4452)\cdot 10^{20}$  \\ \hline
+        1. & $13.350 \pm 0.0005$  & $1.81 \pm 0.03$  & $(9.477 \pm 0.4739)\cdot 10^{20}$  \\ \hline
+        2. & $0.766 \pm 0.0005$  & $5.36 \pm 0.07$  & $(9.065 \pm 0.4532)\cdot 10^{20}$  \\ \hline
+        3. & $1.425 \pm 0.0005$  & $5.63 \pm 0.05$  & $(2.508 \pm 0.1254)\cdot 10^{20}$  \\ \hline
+        4. & $9.276 \pm 0.0005$  & $7.42 \pm 0.10$  & $(8.857 \pm 0.4429)\cdot 10^{20}$  \\ \hline
+        5. & $3.840 \pm 0.0005$  & $8.13 \pm 0.02$  & $(7.045 \pm 0.3523)\cdot 10^{20}$  \\ \hline
+        6. & $1.889 \pm 0.0005$  & $4.58 \pm 0.07$  & $(8.905 \pm 0.4452)\cdot 10^{20}$  \\ \hline
     \end{tabular}
     \caption{Nobody expects the Spanish inquisition.}
 \end{table}
 ```
 
-![Example 1](https://astro.bklement.com/latab/img1.png)
+![Example 1](https://astro.bklement.com/latab/imgage1.png)
 
 ### Localized example with different decimal separator
 
 ```
 (Table("Aprócska kalapocska, benne csacska macska mocska.")
  .textColumn("Bolygó", planets)
- .dataColumn("Félnagytengely [AU]", array1, FixError(0.005), FloatFormatter(3, 3))
+ .dataColumn("Félnagytengely [AU]", array1, FixError(0.0005))
  .dataColumn("$\\varrho$", array2, AbsoluteError(errors), FloatFormatter(2, 2))
  .dataColumn("Tömeg", array3, RelativeError(0.05))).print(separator=',')
 ```
@@ -62,15 +62,15 @@ planets = ["Kepler137b", "Kepler137c", "Kepler137d", "Kepler137e", "Kepler137f",
     \centering
     \begin{tabular}{|c|c|c|c|} \hline
         Bolygó & Félnagytengely [AU] & $\varrho$ [$\mathrm{g/cm^{3}}$] & Tömeg [$\mathrm{kg}$] \\ \hline
-        Kepler137b & $13,350 \pm 0,005$  & $1,81 \pm 0,03$  & $(9,477 \pm 0,4739)\cdot 10^{20}$  \\ \hline
-        Kepler137c & $0,766 \pm 0,005$  & $5,36 \pm 0,07$  & $(9,065 \pm 0,4532)\cdot 10^{20}$  \\ \hline
-        Kepler137d & $1,425 \pm 0,005$  & $5,63 \pm 0,05$  & $(2,508 \pm 0,1254)\cdot 10^{20}$  \\ \hline
-        Kepler137e & $9,276 \pm 0,005$  & $7,42 \pm 0,10$  & $(8,857 \pm 0,4429)\cdot 10^{20}$  \\ \hline
-        Kepler137f & $3,840 \pm 0,005$  & $8,13 \pm 0,02$  & $(7,045 \pm 0,3523)\cdot 10^{20}$  \\ \hline
-        Kepler137g & $1,889 \pm 0,005$  & $4,58 \pm 0,07$  & $(8,905 \pm 0,4452)\cdot 10^{20}$  \\ \hline
+        Kepler137b & $13,350 \pm 0,0005$  & $1,81 \pm 0,03$  & $(9,477 \pm 0,4739)\cdot 10^{20}$  \\ \hline
+        Kepler137c & $0,766 \pm 0,0005$  & $5,36 \pm 0,07$  & $(9,065 \pm 0,4532)\cdot 10^{20}$  \\ \hline
+        Kepler137d & $1,425 \pm 0,0005$  & $5,63 \pm 0,05$  & $(2,508 \pm 0,1254)\cdot 10^{20}$  \\ \hline
+        Kepler137e & $9,276 \pm 0,0005$  & $7,42 \pm 0,10$  & $(8,857 \pm 0,4429)\cdot 10^{20}$  \\ \hline
+        Kepler137f & $3,840 \pm 0,0005$  & $8,13 \pm 0,02$  & $(7,045 \pm 0,3523)\cdot 10^{20}$  \\ \hline
+        Kepler137g & $1,889 \pm 0,0005$  & $4,58 \pm 0,07$  & $(8,905 \pm 0,4452)\cdot 10^{20}$  \\ \hline
     \end{tabular}
     \caption{Aprócska kalapocska, benne csacska macska mocska.}
 \end{table}
 ```
 
-![Example 2](https://astro.bklement.com/latab/img2.png)
+![Example 2](https://astro.bklement.com/latab/imgage2.png)

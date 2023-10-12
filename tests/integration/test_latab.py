@@ -17,7 +17,7 @@ class TestLatab(TestCase):
     def test_example1(self):
         lines = (Table("Nobody expects the Spanish inquisition.")
                  .textColumn("Planet", self.planets)
-                 .dataColumn("Semi-major Axis [AU]", self.array1, FixError(0.005), FloatFormatter(3, 3))
+                 .dataColumn("Semi-major Axis [AU]", self.array1, FixError(0.0005))
                  .dataColumn("$\\varrho$", self.array2, AbsoluteError(self.errors), FloatFormatter(2, 2))
                  .dataColumn("Mass", self.array3, RelativeError(0.05))).lines()
 
@@ -31,7 +31,7 @@ class TestLatab(TestCase):
     def test_example2(self):
         lines = (Table("Aprócska kalapocska, benne csacska macska mocska.")
                  .serialColumn("Bolygó", 6)
-                 .dataColumn("Félnagytengely [AU]", self.array1, FixError(0.005), FloatFormatter(3, 3))
+                 .dataColumn("Félnagytengely [AU]", self.array1, FixError(0.0005))
                  .dataColumn("$\\varrho$", self.array2, AbsoluteError(self.errors), FloatFormatter(2, 2))
                  .dataColumn("Tömeg", self.array3, RelativeError(0.05))).lines(separator=',')
 
