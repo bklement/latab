@@ -45,7 +45,7 @@ planets = ["Kepler137b", "Kepler137c", "Kepler137d", "Kepler137e", "Kepler137f",
 \end{table}
 ```
 
-![Example 1](https://astro.bklement.com/latab/imgage1.png)
+![Example 1](https://astro.bklement.com/latab/image1.png)
 
 ### Localized example with different decimal separator
 
@@ -73,4 +73,4 @@ planets = ["Kepler137b", "Kepler137c", "Kepler137d", "Kepler137e", "Kepler137f",
 \end{table}
 ```
 
-![Example 2](https://astro.bklement.com/latab/imgage2.png)
+![Example 2](https://astro.bklement.com/latab/image2.png)
