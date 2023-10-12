@@ -1,6 +1,8 @@
 from .formatters import FloatFormatter, ExponentialFormatter
-from .columns import SerialNumberColumn, TextColumn, EmptyColumn, DataColumn
+from .columns import SerialNumberColumn, TextColumn, DataColumn
+from .converter import convertUnitToLateX
 from .table import Table
+from .errors import FixError, RelativeError, AbsoluteError
 
 __all__ = ["FloatFormatter",
            "ExponentialFormatter",
@@ -8,4 +10,8 @@ __all__ = ["FloatFormatter",
            "TextColumn",
            "EmptyColumn",
            "DataColumn",
-           "Table"]
+           "Table",
+           "convertUnitToLateX",
+           "FixError",
+           "AbsoluteError",
+           "RelativeError"]
