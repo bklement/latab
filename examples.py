@@ -23,3 +23,4 @@ planets = ["Kepler137b", "Kepler137c", "Kepler137d", "Kepler137e", "Kepler137f",
  .dataColumn("Félnagytengely [AU]", array1, FixError(0.0005))
  .dataColumn("$\\varrho$", array2, AbsoluteError(errors), FloatFormatter(2, 2))
  .dataColumn("Tömeg", array3, RelativeError(0.05))).print(separator=',')
+

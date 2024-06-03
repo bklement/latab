@@ -21,7 +21,3 @@ dist
 .gradle
 bin
 build
-
-.coverage
-htmlcov
-.mutmut-cache

@@ -1,0 +1,4 @@
+numpy
+astropy
+twine
+build
