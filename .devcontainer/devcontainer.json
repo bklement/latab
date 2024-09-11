@@ -13,7 +13,8 @@
                 "ms-python.autopep8",
                 "redhat.vscode-yaml",
                 "eamodio.gitlens",
-                "bierner.markdown-preview-github-styles"
+                "bierner.markdown-preview-github-styles",
+                "github.vscode-github-actions"
             ]
         }
     }, 
