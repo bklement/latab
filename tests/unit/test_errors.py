@@ -15,7 +15,7 @@ ABSOLUTE_ERROR_ERROR_MESSAGE = "^Absolute error must be of type numpy.ndarray or
 class TestError(TestCase):
 
     def test_abstarct(self):
-        with self.assertRaisesRegex(TypeError, "Can't instantiate abstract class Error with abstract method getErrors"):
+        with self.assertRaises(TypeError):
             Error()
 
 

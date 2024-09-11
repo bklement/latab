@@ -1,0 +1,24 @@
+{
+    "dockerComposeFile": "compose.yaml",
+    "service": "development",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.debugpy",
+                "ms-python.flake8",
+                "ms-python.isort",
+                "ms-python.autopep8",
+                "redhat.vscode-yaml",
+                "eamodio.gitlens",
+                "bierner.markdown-preview-github-styles"
+            ]
+        }
+    }, 
+    "containerEnv": {
+        "SHELL": "/usr/bin/zsh"
+    },
+    "initializeCommand": "(aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 442864304639.dkr.ecr.eu-west-1.amazonaws.com/dc-base)"
+}

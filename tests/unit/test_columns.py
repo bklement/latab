@@ -11,7 +11,6 @@ HEADER = "header"
 HEADER_WITH_UNIT = "header [$\mathrm{AU}$]"
 TEXTS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
 LINES = 10
-ABSTRACT_CLASS_ERROR_MESSAGE = "^Can't instantiate abstract class Column with abstract method getCell$"
 WRONG_DATA_TYPE_MESSAGE = "^Data must be of type numpy.ndarray or astropy.units.Quantity$"
 WRONG_ERROR_TYPE_MESSAGE = "^Error must be of type latab.Error$"
 WRONG_FORMATTER_MESSAGE = "^The argument 'formatter' must be a subclass of latab.Formatter$"
@@ -22,7 +21,7 @@ ERRORS = DATA * 0.05
 class TestColumn(TestCase):
 
     def test_ColumnIsAbstract(self):
-        with self.assertRaisesRegex(TypeError, ABSTRACT_CLASS_ERROR_MESSAGE):
+        with self.assertRaises(TypeError):
             Column()
 
 

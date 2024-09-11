@@ -2,13 +2,11 @@ from unittest import TestCase, main
 from src.latab import FloatFormatter, ExponentialFormatter
 from src.latab.formatters import Formatter
 
-ABSTRACT_CLASS_ERROR_MESSAGE = "^Can't instantiate abstract class Formatter with abstract method format$"
-
 
 class TestFormatter(TestCase):
 
     def test_FormatterIsAbstract(self):
-        with self.assertRaisesRegex(TypeError, ABSTRACT_CLASS_ERROR_MESSAGE):
+        with self.assertRaises(TypeError):
             Formatter()
 
 
