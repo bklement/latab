@@ -5,8 +5,4 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ..:/workspace
-      - ~/.gitconfig:/home/ubuntu/.gitconfig
-      - ~/.gitignore:/home/ubuntu/.gitignore
-      - ~/.ssh:/home/ubuntu/.ssh
-      - /var/run/docker.sock:/var/run/docker.sock
     stdin_open: true
