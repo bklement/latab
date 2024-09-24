@@ -54,10 +54,9 @@ class DataColumn(Column):
             self.__data = data
         else:
             raise Exception("Data must be of type numpy.ndarray or astropy.units.Quantity")
-        dataOrder = np.max(np.ceil(np.abs(np.log10(self.__data))))
 
         if formatter is None:
-            if dataOrder > 4:
+            if np.ceil(np.abs(np.log10(np.max(self.__data)))) > 4:
                 self.__formatter = ExponentialFormatter()
             else:
                 self.__formatter = FloatFormatter()
