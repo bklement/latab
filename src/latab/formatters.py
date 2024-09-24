@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 import numpy as np
+import sys
 
 
 class Formatter(ABC):
@@ -22,7 +23,7 @@ class FloatFormatter(Formatter):
         if error is None:
             return ("{:." + str(self._precision) + "f} ").format(value)
         else:
-            template = ("${:." + str(self._precision) + "f} \pm " + "{:." + str(self._errorPrecision) + "f}" + "$ ")
+            template = ("${:." + str(self._precision) + "f} \\pm " + "{:." + str(self._errorPrecision) + "f}" + "$ ")
             return template.format(value, error)
 
 
@@ -32,7 +33,9 @@ class ExponentialFormatter(Formatter):
         super(ExponentialFormatter, self).__init__(precision, errorPrecision)
 
     def format(self, value: float, error: float | None = None):
-        if error is None:
+        if np.abs(value) < sys.float_info.min:
+            return "0"
+        elif error is None:
             a = int(np.floor(np.log10(np.abs(value))))
             b = value / 10**a
             s = "${:." + str(self._precision) + "f} \\cdot 10^"

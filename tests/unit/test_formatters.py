@@ -86,6 +86,10 @@ class TestExponentialFormatter(TestCase):
         self.assertEqual(underTest.format(1.74321e+32, 5.2e+30), "$(1.7432 \\pm 0.052000)\\cdot 10^{32}$ ")
         self.assertEqual(underTest.format(1.74321e+32, 5.2e+17), "$(1.7432 \\pm 0.000000)\\cdot 10^{32}$ ")
 
+    def test_zero(self):
+        underTest = ExponentialFormatter()
+        self.assertEqual(underTest.format(0), "0")
+
 
 if __name__ == '__main__':
     main()
