@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from src.latab import FloatFormatter, ExponentialFormatter
+from src.latab import FloatFormatter, ExponentialFormatter, IntFormatter
 from src.latab.formatters import Formatter
 
 
@@ -27,12 +27,12 @@ class TestFloatFormatter(TestCase):
 
     def test_formatWithError(self):
         underTest = FloatFormatter()
-        self.assertEqual(underTest.format(1.0046, 0.0005), "$1.005 \pm 0.0005$ ")
-        self.assertEqual(underTest.format(1.0045, 0.00000423), "$1.004 \pm 0.0000$ ")
+        self.assertEqual(underTest.format(1.0046, 0.0005), "$1.005 \\pm 0.0005$ ")
+        self.assertEqual(underTest.format(1.0045, 0.00000423), "$1.004 \\pm 0.0000$ ")
 
         underTest = FloatFormatter(precision=2)
-        self.assertEqual(underTest.format(1.046, 0.0005), "$1.05 \pm 0.0005$ ")
-        self.assertEqual(underTest.format(1.045, 0.00000423), "$1.04 \pm 0.0000$ ")
+        self.assertEqual(underTest.format(1.046, 0.0005), "$1.05 \\pm 0.0005$ ")
+        self.assertEqual(underTest.format(1.045, 0.00000423), "$1.04 \\pm 0.0000$ ")
 
         underTest = FloatFormatter(errorPrecision=5)
         self.assertEqual(underTest.format(1.046, 0.0005), "$1.046 \\pm 0.00050$ ")
@@ -89,6 +89,19 @@ class TestExponentialFormatter(TestCase):
     def test_zero(self):
         underTest = ExponentialFormatter()
         self.assertEqual(underTest.format(0), "0")
+
+
+class TestIntFormatter(TestCase):
+    def test_format(self):
+        underTest = IntFormatter()
+        self.assertEqual(underTest.format(1.0046), "1 ")
+        self.assertEqual(underTest.format(1), "1 ")
+        self.assertEqual(underTest.format(132), "132 ")
+        self.assertEqual(underTest.format(45321), "45321 ")
+
+        underTest = IntFormatter(1)
+        self.assertEqual(underTest.format(1, 0.05), "$1 \\pm 0.1$ ")
+        self.assertEqual(underTest.format(1, 0.5), "$1 \\pm 0.5$ ")
 
 
 if __name__ == '__main__':

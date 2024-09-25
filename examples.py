@@ -1,6 +1,6 @@
 import numpy as np
 from astropy import units
-from src.latab import Table, FloatFormatter, FixError, AbsoluteError, RelativeError
+from src.latab import Table, FloatFormatter, FixError, AbsoluteError, RelativeError, IntFormatter
 
 
 array1 = np.array([13.35000606, 0.76642346, 1.42476496, 9.27577478, 3.83978828, 1.88922311])
@@ -23,3 +23,5 @@ planets = ["Kepler137b", "Kepler137c", "Kepler137d", "Kepler137e", "Kepler137f",
  .dataColumn("Félnagytengely [AU]", array1, FixError(0.0005))
  .dataColumn("$\\varrho$", array2, AbsoluteError(errors), FloatFormatter(2, 2))
  .dataColumn("Tömeg", array3, RelativeError(0.05))).print(separator=',')
+
+Table("a").dataColumn("b", np.array([0, 1, 2, 543, 2432111, 0]), formatter=IntFormatter()).print()

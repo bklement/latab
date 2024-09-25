@@ -27,6 +27,12 @@ class FloatFormatter(Formatter):
             return template.format(value, error)
 
 
+class IntFormatter(FloatFormatter):
+
+    def __init__(self, errorPrecision: int = 0):
+        super(IntFormatter, self).__init__(0, errorPrecision)
+
+
 class ExponentialFormatter(Formatter):
 
     def __init__(self, precision: int = 3, errorPrecision: int = 4):

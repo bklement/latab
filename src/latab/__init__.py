@@ -1,4 +1,4 @@
-from .formatters import FloatFormatter, ExponentialFormatter
+from .formatters import FloatFormatter, ExponentialFormatter, IntFormatter
 from .table import Table
 from .errors import FixError, RelativeError, AbsoluteError
 from .columns import SerialNumberColumn, TextColumn, DataColumn
@@ -6,6 +6,7 @@ from .columns import SerialNumberColumn, TextColumn, DataColumn
 __all__ = ["Table",
            "FloatFormatter",
            "ExponentialFormatter",
+           "IntFormatter",
            "FixError",
            "AbsoluteError",
            "RelativeError",
