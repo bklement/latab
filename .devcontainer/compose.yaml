@@ -5,4 +5,5 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ..:/workspace
+      - ~/.gitconfig:/home/ubuntu/.gitconfig
     stdin_open: true

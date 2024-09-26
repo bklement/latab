@@ -1,3 +1,3 @@
-FROM 442864304639.dkr.ecr.eu-west-1.amazonaws.com/devcontainer/python:latest
+FROM public.ecr.aws/w3c9b0j2/devcontainer/python:latest
 
 RUN python3.12 -m pip install numpy astropy coverage pytest pytest-xdist mutmut
