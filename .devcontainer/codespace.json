@@ -1,6 +1,6 @@
 {
     "name": "codespace",
-    "dockerComposeFile": "compose.yaml",
+    "dockerComposeFile": "compose_codespace.yaml",
     "service": "development",
     "workspaceFolder": "/workspace",
     "customizations": {
