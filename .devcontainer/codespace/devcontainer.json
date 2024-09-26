@@ -2,7 +2,7 @@
     "name": "latab-codespace",
     "dockerComposeFile": "compose.yaml",
     "service": "development",
-    "workspaceFolder": "/workspace",
+    "workspaceFolder": "/workspaces/latab",
     "customizations": {
         "vscode": {
             "extensions": [
