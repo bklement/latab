@@ -1,6 +1,6 @@
 {
-    "name": "codespace",
-    "dockerComposeFile": "compose_codespace.yaml",
+    "name": "latab-codespace",
+    "dockerComposeFile": "compose.yaml",
     "service": "development",
     "workspaceFolder": "/workspace",
     "customizations": {
