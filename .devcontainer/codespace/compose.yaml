@@ -3,6 +3,4 @@ services:
     build:
       context: ../.
       dockerfile: ../Dockerfile
-    volumes:
-      - ..:/workspace
     stdin_open: true
