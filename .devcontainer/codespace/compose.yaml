@@ -1,6 +1,6 @@
 services:
   development:
     build:
-      context: ../.
-      dockerfile: ../Dockerfile
+      context: .
+      dockerfile: Dockerfile
     stdin_open: true
