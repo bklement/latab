@@ -4,6 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ..:/workspace
+      - ../..:/workspace
       - ~/.gitconfig:/home/ubuntu/.gitconfig
+      - ~/.ssh:/home/ubuntu/.ssh
     stdin_open: true
