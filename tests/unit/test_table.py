@@ -16,12 +16,12 @@ class TestTable(TestCase):
 
     def test_shouldLinesReplaceTabs(self):
         lines = Table().serialColumn(HEADER, 1).serialColumn(HEADER, 1).lines()
-        self.assertTrue(lines[1].startswith("    \centering"))
+        self.assertTrue(lines[1].startswith("    \\centering"))
         self.assertTrue(lines[3].startswith("        header"))
 
     def test_shouldLinesSetTabLength(self):
         lines = Table().serialColumn(HEADER, 1).serialColumn(HEADER, 1).lines(tabLength=8)
-        self.assertTrue(lines[1].startswith("        \centering"))
+        self.assertTrue(lines[1].startswith("        \\centering"))
         self.assertTrue(lines[3].startswith("                header"))
 
     def test_shouldPrintCallLinesWithDefaultArguments(self):
@@ -40,14 +40,14 @@ class TestTable(TestCase):
     def test_shouldPrintReplaceTabs(self, mock_print):
         Table().serialColumn(HEADER, 1).serialColumn(HEADER, 1).print()
         calls = mock_print.call_args_list
-        self.assertTrue(calls[1].args[0].startswith("    \centering"))
+        self.assertTrue(calls[1].args[0].startswith("    \\centering"))
         self.assertTrue(calls[3].args[0].startswith("        header"))
 
     @patch('builtins.print')
     def test_shouldPrintSetTabLength(self, mock_print):
         Table().serialColumn(HEADER, 1).serialColumn(HEADER, 1).print(tabLength=8)
         calls = mock_print.call_args_list
-        self.assertTrue(calls[1].args[0].startswith("        \centering"))
+        self.assertTrue(calls[1].args[0].startswith("        \\centering"))
         self.assertTrue(calls[3].args[0].startswith("                header"))
 
 

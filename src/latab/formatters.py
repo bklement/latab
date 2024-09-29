@@ -19,7 +19,9 @@ class FloatFormatter(Formatter):
     def __init__(self, precision: int = 3, errorPrecision: int = 4):
         super(FloatFormatter, self).__init__(precision, errorPrecision)
 
-    def format(self, value: float, error: float | None = None):
+    def format(self, value: float | None, error: float | None = None):
+        if value is None:
+            return " "
         if error is None:
             return ("{:." + str(self._precision) + "f} ").format(value)
         else:

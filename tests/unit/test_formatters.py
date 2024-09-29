@@ -42,6 +42,10 @@ class TestFloatFormatter(TestCase):
         self.assertEqual(underTest.format(1.046, 0.0005), "$1.0460 \\pm 0.001$ ")
         self.assertEqual(underTest.format(1.045, 0.00000423), "$1.0450 \\pm 0.000$ ")
 
+    def test_sparse(self):
+        underTest = FloatFormatter()
+        self.assertEqual(underTest.format(None), " ")
+
 
 class TestExponentialFormatter(TestCase):
 
